@@ -35,16 +35,16 @@
 
 
                                 <?php
-if (isset($_GET['pesan'])) {
-    if ($_GET['pesan'] == "ada_yang_salah") {
-        echo "<div class='alert alert-danger' role='alert'>Ada sesuatu yang salah!</div>";
-    } else if ($_GET['pesan'] == "database_error") {
-        echo "<div class='alert alert-danger' role='alert'>masalah pada penginputan ke dalam database</div>";
-    } else if ($_GET['pesan'] == "email_terdaftar") {
-        echo "<div class='alert alert-danger' role='alert'>Email yang anda gunakan telah terdaftar</div>";
-    }
-}
-?>
+                                if (isset($_GET['pesan'])) {
+                                    if ($_GET['pesan'] == "ada_yang_salah") {
+                                        echo "<div class='alert alert-danger' role='alert'>Ada sesuatu yang salah!</div>";
+                                    } else if ($_GET['pesan'] == "database_error") {
+                                        echo "<div class='alert alert-danger' role='alert'>masalah pada penginputan ke dalam database</div>";
+                                    } else if ($_GET['pesan'] == "email_terdaftar") {
+                                        echo "<div class='alert alert-danger' role='alert'>Email yang anda gunakan telah terdaftar</div>";
+                                    }
+                                }
+                                ?>
 
 
                                 <h1 class="h4 text-gray-900 mb-4">Buat Akun!</h1>

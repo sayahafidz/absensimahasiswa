@@ -17,10 +17,10 @@
                         <div class="h3 mb-0 font-weight-bold text-gray-800">
                             <?php
 
-foreach ($koneksi->query('SELECT COUNT(*) FROM mahasiswa') as $row) {
-    echo $row['COUNT(*)'];
-}
-?>
+                            foreach ($koneksi->query('SELECT COUNT(*) FROM mahasiswa') as $row) {
+                                echo $row['COUNT(*)'];
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -40,10 +40,10 @@ foreach ($koneksi->query('SELECT COUNT(*) FROM mahasiswa') as $row) {
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Total Absensi</div>
                         <div class="h3 mb-0 font-weight-bold text-gray-800"><?php
-foreach ($koneksi->query('SELECT COUNT(*) FROM absensi') as $row) {
-    echo $row['COUNT(*)'];
-}
-?></div>
+                                                                            foreach ($koneksi->query('SELECT COUNT(*) FROM absensi') as $row) {
+                                                                                echo $row['COUNT(*)'];
+                                                                            }
+                                                                            ?></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -78,6 +78,7 @@ foreach ($koneksi->query('SELECT COUNT(*) FROM absensi') as $row) {
                         <th>WAKTU</th>
                         <th>KETERANGAN</th>
                         <th>ALASAN</th>
+                        <th>AKSI</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -90,14 +91,15 @@ foreach ($koneksi->query('SELECT COUNT(*) FROM absensi') as $row) {
                         <th>WAKTU</th>
                         <th>KETERANGAN</th>
                         <th>ALASAN</th>
+                        <th>AKSI</th>
                     </tr>
                 </tfoot>
 
                 <tbody>
                     <tr>
                         <?php
-foreach ($koneksi->query('SELECT * FROM absensi') as $row) {
-    ?>
+                        foreach ($koneksi->query('SELECT * FROM absensi') as $row) {
+                        ?>
                             <td><?php echo $row['id']; ?></td>
                             <td><?php echo $row['nim']; ?></td>
                             <td><?php echo $row['nama_mahasiswa']; ?></td>
@@ -106,11 +108,11 @@ foreach ($koneksi->query('SELECT * FROM absensi') as $row) {
                             <td><?php echo $row['waktu']; ?></td>
                             <td><?php echo $row['keterangan']; ?></td>
                             <td><?php echo $row['alasan']; ?></td>
+                            <td>AKSI</td>
+                            </tr>
                         <?php
-}
-?>
-                    </tr>
-
+                        }
+                        ?>
                 </tbody>
             </table>
         </div>
