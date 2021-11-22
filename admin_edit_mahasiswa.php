@@ -5,7 +5,7 @@ $mahasiswa = mysqli_fetch_assoc($query);
 ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4 text-justify">
-    <h1 class="h3 mb-0 text-gray-800 ">Profil Mahasiswa</h1>
+    <h1 class="h3 mb-0 text-gray-800 ">Edit Mahasiswa</h1>
 </div>
 <form method="POST" action="admin_proses_edit_mahasiswa.php">
     <div class="form-row">

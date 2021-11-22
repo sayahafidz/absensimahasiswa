@@ -1,3 +1,19 @@
+<?php
+if (isset($_GET['pesan'])) {
+    if ($_GET['pesan'] == "berhasil_delete") {
+        // echo "Login gagal! username dan password salah!";
+        echo "<div class='alert alert-success' role='alert'>Berhasil delete </div>";
+    }else if ($_GET['pesan'] == "berhasil_update") {
+        // echo "Login gagal! username dan password salah!";
+        echo "<div class='alert alert-success' role='alert'>Berhasil update </div>";
+    } else if ($_GET['pesan'] == "gagal_update") {
+        echo "<div class='alert alert-danger' role='alert'>Gagal update</div>";
+    }else if ($_GET['pesan'] == "gagal_delete") {
+        echo "<div class='alert alert-danger' role='alert'>Gagal delete</div>";
+    }
+}
+?>
+
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -57,7 +73,8 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Download Report Absensi</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download Report</a>
+
+    <a href="export_excel.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download Report</a>
 </div>
 
 <!-- table -->
@@ -67,6 +84,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
+            
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -108,7 +126,10 @@
                             <td><?php echo $row['waktu']; ?></td>
                             <td><?php echo $row['keterangan']; ?></td>
                             <td><?php echo $row['alasan']; ?></td>
-                            <td>AKSI</td>
+                            <td style="text-align: center;">
+                                <a href="admin_index.php?page=admin_edit_absensi&id=<?php echo $row['id'] ?>"><i class="fas fa-edit"></i></a>
+                                <a href="admin_delete_absensi.php?id=<?php echo $row['id'] ?>"><i class="fas fa-trash"></i></a>
+                            </td>
                             </tr>
                         <?php
                         }

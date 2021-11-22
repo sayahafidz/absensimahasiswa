@@ -12,4 +12,9 @@ if (isset($_POST['ubah'])) {
 }
 $sql    = "UPDATE mahasiswa SET nim='$nim', email='$email', password='$password', nama='$nama', kelas='$kelas', program_studi='$program_studi', alamat='$alamat', tanggal_lahir='$tanggal_lahir' WHERE nim='$nim' ";
 $result = mysqli_query($koneksi, $sql);
-header('location:user_index.php?page=profil_mahasiswa');
+if ($result) {
+    header('location:user_index.php?page=profil_mahasiswa&pesan=berhasil_update');
+}else{
+    header('location:user_index.php?page=profil_mahasiswa&pesan=gagal_update');
+}
+

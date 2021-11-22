@@ -46,6 +46,8 @@ if (isset($_GET['pesan'])) {
         echo "<div class='alert alert-success' role='alert'>Berhasil Logout</div>";
     } else if ($_GET['pesan'] == "salah") {
         echo "<div class='alert alert-danger' role='alert'>Username atau Password salah</div>";
+    }else if ($_GET['pesan'] == "regis_berhasil") {
+        echo "<div class='alert alert-success' role='alert'>berhasil registrasi</div>";
     }
 }
 ?>

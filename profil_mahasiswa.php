@@ -2,7 +2,16 @@
 $nim       = $_SESSION['nim'];
 $query     = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE nim='$nim'");
 $mahasiswa = mysqli_fetch_assoc($query);
+if (isset($_GET['pesan'])) {
+    if ($_GET['pesan'] == "berhasil_update") {
+        // echo "Login gagal! username dan password salah!";
+        echo "<div class='alert alert-success' role='alert'>Berhasil update </div>";
+    }else if ($_GET['pesan'] == "gagal_update") {
+        echo "<div class='alert alert-danger' role='alert'>Gagal update</div>";
+    }
+}
 ?>
+
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4 text-justify">
     <h1 class="h3 mb-0 text-gray-800 ">Profil Mahasiswa</h1>
@@ -21,7 +30,7 @@ $mahasiswa = mysqli_fetch_assoc($query);
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="nim">NIM</label>
-            <input type="number" class="form-control" id="nim" name="nim" value="<?php echo $mahasiswa['nim']; ?>" >
+            <input type="number" class="form-control" id="nim" name="nim" value="<?php echo $mahasiswa['nim']; ?>" readonly >
         </div>
         <div class="form-group col-md-6">
             <label for="nama">Nama</label>
