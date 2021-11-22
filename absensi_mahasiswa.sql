@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Nov 22, 2021 at 06:00 AM
--- Server version: 5.7.24
--- PHP Version: 8.0.2
+-- Host: localhost
+-- Generation Time: Nov 22, 2021 at 11:24 PM
+-- Server version: 8.0.27-0ubuntu0.20.04.1
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `absensi_mahasiswa`
 --
-CREATE DATABASE IF NOT EXISTS `absensi_mahasiswa` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `absensi_mahasiswa`;
 
 -- --------------------------------------------------------
 
@@ -30,8 +28,8 @@ USE `absensi_mahasiswa`;
 --
 
 CREATE TABLE `absensi` (
-  `id` int(11) NOT NULL,
-  `nim` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `nim` int NOT NULL,
   `nama_mahasiswa` varchar(100) NOT NULL,
   `kelas` varchar(100) NOT NULL,
   `program_studi` varchar(100) NOT NULL,
@@ -45,10 +43,9 @@ CREATE TABLE `absensi` (
 --
 
 INSERT INTO `absensi` (`id`, `nim`, `nama_mahasiswa`, `kelas`, `program_studi`, `waktu`, `keterangan`, `alasan`) VALUES
-(2511, 1212, 'hafidz', 'hafidz', 'hafidz', '2021-11-14 10:44:47', 'hadir', ''),
-(2823, 1212, 'hafidz', 'hafidz', 'hafidz', '2021-11-14 10:44:43', 'hadir', ''),
-(3768, 1212, 'hafidz', 'hafidz', 'hafidz', '2021-11-14 10:24:04', 'hadir', ''),
-(8912, 1234, 'febry', 'mi3a', 'Manajemen Informatika', '2021-11-17 08:10:05', 'hadir', '');
+(7581, 1234, 'febry', 'mi3a', 'Manajemen Informatika', '2021-11-22 16:14:10', 'sakit', 'sakit '),
+(7906, 1212, 'hafidz', 'hafidz', 'hafidz', '2021-11-22 16:13:11', 'izin', 'nenek saya kecelakaan'),
+(9766, 85, 'Kordula Prium', 'Yellow', 'Yellow', '2021-11-22 16:18:49', 'hadir', '');
 
 -- --------------------------------------------------------
 
@@ -57,7 +54,7 @@ INSERT INTO `absensi` (`id`, `nim`, `nama_mahasiswa`, `kelas`, `program_studi`, 
 --
 
 CREATE TABLE `mahasiswa` (
-  `nim` int(11) NOT NULL,
+  `nim` int NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
@@ -72,25 +69,18 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `email`, `password`, `nama`, `kelas`, `program_studi`, `alamat`, `tanggal_lahir`) VALUES
-(0, 'lduffittx@irs.gov', 'tTOFiO0', 'Lynnelle Duffitt', 'Puce', 'Crimson', '995 Kenwood Alley', '2020-12-06'),
 (1, 'admin@admin', 'admin', 'admin', '', '', '', '2021-11-30'),
-(2, 'bhandscombu@webeden.co.uk', 'QZcF6BVjw2y8', 'Benedicta Handscomb', 'Khaki', 'Indigo', '875 Northport Way', '2021-05-31'),
 (3, 'cmunnings2@qq.com', 'DU4LcZHrqzsE', 'Carol-jean Munnings', 'Orange', 'Maroon', '00 Fordem Plaza', '2021-07-04'),
 (4, 'cbigleyh@bravesites.com', 'wLxlzr', 'Clari Bigley', 'Orange', 'Khaki', '11772 Sunfield Center', '2021-02-27'),
-(5, 'amoulesn@stanford.edu', '5SqQXllqKHu', 'Angelo Moules', 'Orange', 'Turquoise', '0 Pepper Wood Road', '2020-11-29'),
 (8, 'chuntonq@google.it', 'eLoZ8DXZ9X', 'Cassie Hunton', 'Turquoise', 'Indigo', '9041 Tony Plaza', '2021-03-29'),
-(11, 'rheapsj@multiply.com', 'Z2D63hjhfp5s', 'Roxana Heaps', 'Puce', 'Puce', '39 Oriole Park', '2021-01-19'),
 (18, 'ncosgrove4@miibeian.gov.cn', 'MyGsDE0LVO', 'Ninnetta Cosgrove', 'Fuscia', 'Violet', '85461 Mockingbird Alley', '2021-07-31'),
-(22, 'ebrachell12@bigcartel.com', 'XgaWHxKbI', 'Earle Brachell', 'Teal', 'Purple', '26151 Graedel Way', '2020-11-27'),
 (28, 'tmelettic@altervista.org', 'XWzUrCHaPGM', 'Toby Meletti', 'Indigo', 'Purple', '4 Morning Pass', '2021-05-24'),
 (31, 'tsanches5@nps.gov', 'Ill0ZTQJc5y', 'Thatcher Sanches', 'Indigo', 'Indigo', '35 Bowman Crossing', '2021-08-22'),
-(39, 'sdunster1e@aol.com', 'sPbXo2HNSxy', 'Skip Dunster', 'Indigo', 'Blue', '0631 Mayer Drive', '2021-04-17'),
-(48, 'fcullnean16@biblegateway.com', '14jjsNnpVnxu', 'Francois Cullnean', 'Red', 'Indigo', '93 Division Point', '2021-09-28'),
 (57, 'jpykermans@mlb.com', 'RwkE4CBT', 'Jackelyn Pykerman', 'Mauv', 'Violet', '7 Golden Leaf Place', '2021-06-26'),
 (61, 'dknowlson19@last.fm', '9uBHdm4', 'Deeann Knowlson', 'Mauv', 'Indigo', '748 Esch Trail', '2021-05-14'),
 (76, 'kwinslade10@craigslist.org', 'qyHJlr8uW', 'Kary Winslade', 'Teal', 'Goldenrod', '79 Anniversary Parkway', '2021-08-03'),
 (81, 'ndunfordi@smugmug.com', 'S6Uui9Tqp', 'Neron Dunford', 'Fuscia', 'Goldenrod', '917 Florence Circle', '2020-12-01'),
-(85, 'kprium9@sciencedirect.com', 'SajEQjHBq', 'Kordula Prium', 'Yellow', 'Yellow', '30 Menomonie Court', '2021-04-29'),
+(85, 'kprium9@sciencedirect.com', 'SajEQjHBq', 'Kordula Prium', 'Yellow', 'Yellow', '30 Menomonief sitorus', '2021-04-29'),
 (88, 'gflannigank@fc2.com', 'OPvGyXC', 'Garret Flannigan', 'Violet', 'Mauv', '6955 Lillian Way', '2021-01-10'),
 (126, 'isotworth1d@fda.gov', 'DkYexDqF', 'Illa Sotworth', 'Fuscia', 'Khaki', '93127 Summerview Alley', '2020-11-22'),
 (142, 'aketteman11@nih.gov', 'YizKnMlCF', 'Angelo Ketteman', 'Green', 'Turquoise', '8 Lakeland Junction', '2021-03-13'),
@@ -101,7 +91,7 @@ INSERT INTO `mahasiswa` (`nim`, `email`, `password`, `nama`, `kelas`, `program_s
 (605, 'rwaycot8@stumbleupon.com', 'f0Bcug5HXPSg', 'Rhys Waycot', 'Teal', 'Aquamarine', '56466 Kings Parkway', '2021-02-25'),
 (640, 'vscurrah17@mozilla.com', 'A0KVTHXPH', 'Vonni Scurrah', 'Goldenrod', 'Teal', '670 6th Court', '2021-04-13'),
 (995, 'bretter3@symantec.com', 'HGOaFU3ij681', 'Barbe Retter', 'Crimson', 'Goldenrod', '1 Buena Vista Court', '2021-09-19'),
-(1212, 'hafidz@hafidz.com', 'hafidz', 'hafidz', 'hafidz', 'hafidz', 'hafidz', '2021-11-14'),
+(1212, 'hafidz@hafidz.com', 'hafidz', 'hafidz', 'hafidz', 'hafidz', 'pertamina', '2021-11-14'),
 (1234, 'febry@febry.com', 'febry', 'febry', 'mi3a', 'Manajemen Informatika', 'medan', '2021-11-16'),
 (1411, 'gmardlingg@arstechnica.com', 'MNcDmposyc', 'Gannon Mardling', 'Turquoise', 'Goldenrod', '20078 Sycamore Avenue', '2020-12-13'),
 (3464, 'dbarrarp@netlog.com', '68t6gqX', 'Davita Barrar', 'Mauv', 'Green', '8747 Ramsey Point', '2021-10-14'),
@@ -116,7 +106,8 @@ INSERT INTO `mahasiswa` (`nim`, `email`, `password`, `nama`, `kelas`, `program_s
 (32768, 'owheatonr@house.gov', 'XJ5j7onQIZ', 'Odetta Wheaton', 'Blue', 'Maroon', '568 John Wall Parkway', '2021-07-30'),
 (34420, 'tdeletey@tuttocitta.it', 'qwyZB3', 'Tracee Delete', 'Puce', 'Crimson', '0066 Doe Crossing Junction', '2021-10-18'),
 (54488, 'btrevord@istockphoto.com', 'sUodeoBmdb9', 'Blake Trevor', 'Teal', 'Mauv', '913 Clarendon Point', '2021-03-16'),
-(2005102060, 'hafidzalfatih04@gmail.com', '', 'sayahafidz', 'MI3A', 'Manajemen Informatika', 'Perbaungan', '2001-12-09');
+(696969, 'sixnine@gmail.com', 'sixnine', '6ix9ine', 'sixnine', 'enam sembilan', 'entah dimana', '2021-11-10'),
+(2005102060, 'hafidzalfatih04@gmail.com', 'hafidz', 'sayahafidz', 'MI3A', 'Manajemen Informatika', 'Perbaungan', '2001-12-09');
 
 --
 -- Indexes for dumped tables
